@@ -26,3 +26,20 @@ while True:
         break
     else:
         print("Opcion no validad.")
+        
+        
+#Creación de la base de datos
+import sqlite3
+conexion = sqlite3.connect("Urbisagastegui_Almacen.db")
+
+#Creación de la tabla producto
+producto = """Create table producto(
+           idproducto INTEGER PRIMARY KEY,
+           codigo TEXT,
+           nombre TEXT,
+           precio FLOAT
+    )
+"""
+cursor = conexion.cursor()
+cursor.execute(producto)
+conexion.close()
